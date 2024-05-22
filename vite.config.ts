@@ -53,7 +53,17 @@ export default defineConfig({
     setupFiles: './src/setupTests.ts',
     exclude: [...configDefaults.exclude, 'node_modules/', 'dist/'],
     coverage: {
-      reporter: ['text', 'json', 'html'],
+      enabled: false,
+      reporter: ['text', 'json', 'html', 'lcov', 'clover', 'json-summary'],
+      exclude: [
+        'dev-dist/**',
+        '**/*config*',
+        '**/*.d.ts',
+        '**/src/styles/**',
+        '**/src/index.tsx/**',
+        '**/src/service/**',
+        '**/check-coverage.js',
+      ],
     },
   },
 });
